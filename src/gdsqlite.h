@@ -35,6 +35,7 @@ private:
 
 public:
     sqlite3 *db;
+    Array param_bindings;
     String error_message;
     Array query_result;
 

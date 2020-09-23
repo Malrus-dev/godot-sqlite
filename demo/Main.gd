@@ -2,6 +2,7 @@ extends Control
 
 func _enter_tree():
 	var _error : int = $Database.connect("output_received", self, "_on_output_received")
+	_error = $Database.connect("texture_received", self, "_on_texture_received")
 
 func _on_output_received(text : String) -> void:
 	var label := Label.new()
@@ -10,3 +11,6 @@ func _on_output_received(text : String) -> void:
 	label.text = text
 	label.set("custom_colors/font_color", Color.limegreen)
 	label.autowrap = true
+
+func _on_texture_received(texture : ImageTexture) -> void:
+	$MarginContainer/HBoxContainer/DBTexture.texture = texture
